@@ -1,14 +1,104 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+<!-- header + logo -->
+<ion-header *ngFor="let home of homeList" no-border>
+  <ion-toolbar color="primary" style="border-radius: 4%;box-shadow: 0px 2px 0px white!important;">
+    <ion-row class="ion-justify-content-center">
+      <!-- logo -->
+      <ion-col size="3">
+        <div>
+          <ion-img src='https://www.eclypsia.com/content/Test/New%20logo%20barre%20jeu/LOGO_PES.png'></ion-img>
+          <!-- {{ home.nav_logo }} -->
+        </div>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
-
+<!-- presentation -->
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+  <ion-row *ngFor="let home of homeList">
+    <ion-col size="6">
+      <div>
+        <ion-img src='https://via.placeholder.com/150'></ion-img>
+        <!-- {{ home.pres_img }} -->
+      </div>
+    </ion-col>
+    <ion-col size="6">
+      <div>
+        <p class="title">{{ home.pres_title }}</p>
+        <p>{{ home.pres_description }}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <!-- mes projet -->
+
+  <ion-card *ngFor="let projet of projetList">
+    <img src="{{ projet.projet_img }}" />
+    <div class="card-title shadow">{{ projet.projet_title }}</div>
+    <div class="card-subtitle shadow">{{ projet.projet_description }}</div>
+    <a href="{{ projet.projet_link }}">
+      <ion-button size="small" color="primary">lien vers le site</ion-button>
+    </a>
+  </ion-card>
+
+
+  <!-- competences -->
+
+
+
+  <div class="card">
+    <h1 class="title-competence">Mes competences</h1>
+    <ion-slides pager>
+      <ion-slide *ngFor="let competence of compList">
+        <ion-thumbnail size="4">
+          <img src="{{ competence.comp_img }}" />
+        </ion-thumbnail>
+        <h1 class="title-competence2">{{ competence.comp_title }}</h1>
+      </ion-slide>
+    </ion-slides>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- footer -->
+  <ion-footer>
+    <ion-toolbar>
+      <ion-row class="ion-justify-content-center ion-text-center">
+
+
+        <ion-col size="10">
+          <div>
+            <p>© 2019 Copyright: <a href="#">Themis.com</a></p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- logo footer -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="3">
+          <div>
+            <ion-img src='https://www.eclypsia.com/content/Test/New%20logo%20barre%20jeu/LOGO_PES.png'></ion-img>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+
+
+
+
+    </ion-toolbar>
+
+
+
+  </ion-footer>
+
+
 </ion-content>
